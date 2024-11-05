@@ -3,7 +3,7 @@
 In [Student.vue](src%2Fcomponents%2FStudent.vue), if you click button 'Change To Stewie',then vue will fail to deal with this ref Object.
 The button 'Change To Stewie' just change the reference of the 'student' to a new Object `{name:"Stewie", salary: 0}`.
 ![1.gif](1.gif)
-# 2 by the change of a property of a ref Object
+# 2 whether is deep traversal of the source forced if it is an object?
 According to the document:
 > deep: force deep traversal of the source if it is an object, so that the callback fires on deep mutations.  
 > https://vuejs.org/api/reactivity-core.html#watch
