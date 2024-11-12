@@ -1,35 +1,47 @@
 <template>
-  <div>
-    <div class="son_wrapper">
-      <img src="@/assets/stewie.png" alt="STEWIE"/>
-      <div>
-        <h2>Hi,My name is Stewie!</h2>
-        <h3>My accounts: {{ account }}$</h3>
-      </div>
+  <div class="son wrapper">
+    <img src="@/assets/stewie.png" alt="STEWIE"/>
+    <div>
+      <h1>Hi,My name is Stewie!</h1>
+      <h2>My accounts: {{ sonAccount }}$</h2>
+      <button @click="giveMoneyToFather">Give money to Peter</button>
+      <button class="red" @click="buySomething">Buy something</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import StewieConfusedSound from "@/assets/StewieConfusedSound.mp3"
 export default {
+  props: ["sonAccount"],
   data() {
     return {
-      account: 1
+      account: this.sonAccount,
+      volumeV:0.05
+    }
+  },
+  methods: {
+    giveMoneyToFather() {
+      // 2是子组件传给父组件的值，不是直接传递，而是在方法中以参数形式传递
+      this.$emit("sonGiveMoneyToFather", 2);
+    },
+    buySomething(){
+      const stewieConfused = new Audio(StewieConfusedSound);
+      stewieConfused.volume = this.volumeV;
+      stewieConfused.play();
+      this.sonAccount --;
     }
   }
 }
 </script>
 
 <style scoped>
-.son_wrapper {
-  background: aqua;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
+.son {
+  background: #6e146c;
 }
-.son_wrapper > img{
-  height: 200px;
+.red {
+  background: red;
+  color: white;
 }
+
 </style>

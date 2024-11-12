@@ -6,5 +6,21 @@ import Father from "@/components/Father.vue";
 <Father></Father>
 </template>
 
-<style scoped>
+<style>
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: 20px;
+  color: white;
+}
+.wrapper > img{
+  height: 200px;
+}
+button{
+  height: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
 </style>
